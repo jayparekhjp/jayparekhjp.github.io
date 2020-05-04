@@ -176,7 +176,7 @@
             if (isMatch == true) {
                 count++;
             }
-            if (count == 8) {
+            if (count == 6) {
                 setTimeout(function() {
                     window.location.href = 'congratulations.html';
                 }, 2500);
@@ -211,7 +211,7 @@
 
         (function shuffle() {
             cards.forEach(card => {
-                let randomPos = Math.floor(Math.random() * 16);
+                let randomPos = Math.floor(Math.random() * 12);
                 card.style.order = randomPos;
             });
         })();
