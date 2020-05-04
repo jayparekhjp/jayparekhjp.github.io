@@ -1,240 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <title>Memory Card Game HCI 219</title>
+    <title>Memory Card Game HCI 219</title>
 
-  <!-- <link rel="stylesheet" href="styles.css"> -->
-  <style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  display: flex;
-  background: #1c7cc7;
-}
-
-.memory-game {
-  width: 1350px;
-  height: 800px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  perspective: 1000px;
-}
-
-.memory-card {
-  width: calc(25% - 10px);
-  height: calc(25% - 10px);
-  margin: 5px;
-  position: relative;
-  transform: scale(1);
-  transform-style: preserve-3d;
-  transition: transform .5s;
-  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-}
-
-.memory-card:active {
-  transform: scale(0.97);
-  transition: transform .2s;
-}
-
-.memory-card.flip {
-  transform: rotateY(180deg);
-}
-
-.front-face,
-.back-face {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  position: absolute;
-  border-radius: 5px;
-  background: #ffffff;
-  backface-visibility: hidden;
-}
-
-.front-face {
-  transform: rotateY(180deg);
-}
-
-
-.memory-card1 {
-  width: 1000px;
-  height: 50px;
-  margin: 5px;
-}
-  </style>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            background: #1c7cc7;
+        }
+        
+        .memory-game {
+            width: 1350px;
+            height: 800px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            perspective: 1000px;
+        }
+        
+        .memory-card {
+            width: calc(25% - 10px);
+            height: calc(25% - 10px);
+            margin: 5px;
+            position: relative;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform .5s;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+        }
+        
+        .memory-card:active {
+            transform: scale(0.97);
+            transition: transform .2s;
+        }
+        
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+        
+        .front-face,
+        .back-face {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            position: absolute;
+            border-radius: 5px;
+            background: #ffffff;
+            backface-visibility: hidden;
+        }
+        
+        .front-face {
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card1 {
+            width: 1000px;
+            height: 50px;
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
-  <section class="memory-game">
-    <div class="memory-card" data-framework="p1">
-      <img class="front-face" src="img/p1.png" alt="p1" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge"/> 
-    </div>
-    <div class="memory-card" data-framework="p1">
-      <img class="front-face" src="img/s1.png" alt="p1" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+    <section class="memory-game">
+        <div class="memory-card" data-framework="p1">
+            <img class="front-face" src="img/p1.png" alt="p1" />
+            <img class="back-face" src="img/lock.png" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="p1">
+            <img class="front-face" src="img/s1.png" alt="p1" />
+            <img class="back-face" src="img/key.png" alt="JS Badge" />
+        </div>
 
-    <div class="memory-card" data-framework="p2">
-      <img class="front-face" src="img/p2.png" alt="p2" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p2">
-      <img class="front-face" src="img/s2.png" alt="p2" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+        <div class="memory-card" data-framework="p2">
+            <img class="front-face" src="img/p2.png" alt="p2" />
+            <img class="back-face" src="img/lock.png" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="p2">
+            <img class="front-face" src="img/s2.png" alt="p2" />
+            <img class="back-face" src="img/key.png" alt="JS Badge" />
+        </div>
 
-    <div class="memory-card" data-framework="p3">
-      <img class="front-face" src="img/p3.png" alt="p3" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p3">
-      <img class="front-face" src="img/s3.png" alt="p3" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+        <div class="memory-card" data-framework="p3">
+            <img class="front-face" src="img/p3.png" alt="p3" />
+            <img class="back-face" src="img/lock.png" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="p3">
+            <img class="front-face" src="img/s3.png" alt="p3" />
+            <img class="back-face" src="img/key.png" alt="JS Badge" />
+        </div>
 
-    <div class="memory-card" data-framework="p4">
-      <img class="front-face" src="img/p4.png" alt="p4" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p4">
-      <img class="front-face" src="img/s4.png" alt="p4" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+        <div class="memory-card" data-framework="p4">
+            <img class="front-face" src="img/p4.png" alt="p4" />
+            <img class="back-face" src="img/lock.png" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="p4">
+            <img class="front-face" src="img/s4.png" alt="p4" />
+            <img class="back-face" src="img/key.png" alt="JS Badge" />
+        </div>
 
-    <div class="memory-card" data-framework="p5">
-      <img class="front-face" src="img/p5.png" alt="p5" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p5">
-      <img class="front-face" src="img/s5.png" alt="p5" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+        <div class="memory-card" data-framework="p5">
+            <img class="front-face" src="img/p5.png" alt="p5" />
+            <img class="back-face" src="img/lock.png" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="p5">
+            <img class="front-face" src="img/s5.png" alt="p5" />
+            <img class="back-face" src="img/key.png" alt="JS Badge" />
+        </div>
 
-    <div class="memory-card" data-framework="p6">
-      <img class="front-face" src="img/p6.png" alt="p6" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p6">
-      <img class="front-face" src="img/s6.png" alt="p6" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+        <div class="memory-card" data-framework="p6">
+            <img class="front-face" src="img/p6.png" alt="p6" />
+            <img class="back-face" src="img/lock.png" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="p6">
+            <img class="front-face" src="img/s6.png" alt="p6" />
+            <img class="back-face" src="img/key.png" alt="JS Badge" />
+        </div>
 
-    <div class="memory-card" data-framework="p7">
-      <img class="front-face" src="img/p7.png" alt="p7" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p7">
-      <img class="front-face" src="img/s7.png" alt="p7" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
+    </section>
 
-    <div class="memory-card" data-framework="p8">
-      <img class="front-face" src="img/p8.png" alt="p8" />
-      <img class="back-face" src="img/lock.png" alt="JS Badge" />
-    </div>
-    <div class="memory-card" data-framework="p8">
-      <img class="front-face" src="img/s8.png" alt="p8" />
-      <img class="back-face" src="img/key.png" alt="JS Badge" />
-    </div>
-
-  </section>
-
-  <!-- <script src="scripts.js">
+    <!-- <script src="scripts.js">
 
   </script> -->
 
-  <script language = "javascript">
-    const cards = document.querySelectorAll('.memory-card');
+    <script language="javascript">
+        const cards = document.querySelectorAll('.memory-card');
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
+        function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds) {
+                    break;
+                }
+            }
+        }
 
-function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
 
-  this.classList.add('flip');
+            this.classList.add('flip');
 
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
 
-    return;
-  }
+                return;
+            }
 
-  secondCard = this;
+            secondCard = this;
 
-  checkForMatch();
-}
-var count = 0;
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+            checkForMatch();
+        }
+        var count = 0;
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
 
-  if(isMatch == true){
-    count++;
-  }
-  if(count == 8){
-    setTimeout(function(){
-      window.location.href= 'congratulations.html';
-  }, 2500);
-    
-    count =0;
-  }
-  isMatch ? disableCards() : unflipCards();
-}
+            if (isMatch == true) {
+                count++;
+            }
+            if (count == 8) {
+                setTimeout(function() {
+                    window.location.href = 'congratulations.html';
+                }, 2500);
 
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
+                count = 0;
+            }
+            isMatch ? disableCards() : unflipCards();
+        }
 
-  resetBoard();
-}
+        function disableCards() {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
 
-function unflipCards() {
-  lockBoard = true;
+            resetBoard();
+        }
 
-  setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
+        function unflipCards() {
+            lockBoard = true;
 
-    resetBoard();
-  }, 1500);
-}
+            setTimeout(() => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
 
-function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
-}
+                resetBoard();
+            }, 1500);
+        }
 
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 16);
-    card.style.order = randomPos;
-  });
-})();
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+        (function shuffle() {
+            cards.forEach(card => {
+                let randomPos = Math.floor(Math.random() * 16);
+                card.style.order = randomPos;
+            });
+        })();
 
-  </script>
+        cards.forEach(card => card.addEventListener('click', flipCard));
+    </script>
 </body>
+
 </html>
