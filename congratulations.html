@@ -156,16 +156,23 @@ $(window).on("load",function(){
 	setTimeout(function(){$('.done').addClass("drawn");},500)
 	
 });
+function playAudio(url) {
+  new Audio(url).play();
+}
 
 
 </script>
 </head>
 <body>
+	<audio controls autoplay>
+		<source src="end.mp3" type="audio/mpeg">
+		<h1>Your browser does not support the audio element.</h1>
+	  </audio>
 <div class="contain">
 	<div class="congrats">
 		<h1>Congrat<span class="hide">ulation</span>s !</h1>
 		<div class="done">
-		<img src="img/party.png" width = "150px" height="150px"/>
+		<img src="img/party.gif" width = "150px" height="150px" onclick="playAudio('end.mp3')"/>
 			</div>
 			<br/>
 		<div class="text">

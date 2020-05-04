@@ -151,27 +151,37 @@
             }, 500)
 
         });
+
+        function playAudio(url) {
+            new Audio(url).play();
+        }
     </script>
 </head>
 
 <body>
+    <audio controls autoplay>
+		<source src="start.mp3" type="audio/mpeg">
+		<h1>Your browser does not support the audio element.</h1>
+	  </audio>
+    <!-- <iframe src="https://cross-origin.com/myvideo.html" allow="autoplay"> -->
     <div class="contain">
         <div class="congrats">
-            <h1>Cybersecurity Memory Card Game</h1>
-            <img src="img/lock.gif" width="200px" height="200px" />
+            <h1>Cybersecurity Memory Card Game
+                <img src="img/lock.gif" width="200px" height="200px" onclick="playAudio('start.mp3')" />
 
-            <div class="text">
-                <p><b>WELCOME!</b><br></p>
-                <p>Test your memory and security knowledge by flipping the correct Cybersecurity attacks and their preventive measure to win the game<br></p>
-                <a href="game.html">
-                    <p>Click here to play</p>
-                </a>
-                <p>CMPE 219 HCI for Cybersecurity</p>
-                <b>Team 7</b><br>
-                <p>
-                    <h5>Created by Aakash Alurkar, Akhil Raveendran, Divisha Bera and Jay Parekh</h5>
-                </p>
-            </div>
+                <div class="text">
+                    <p><b>WELCOME!</b><br></p>
+                    <p>Test your memory and security knowledge by flipping the correct Cybersecurity attacks and their preventive measure to win the game<br></p>
+                    <p>Flip the green lock card first with the corresponding red lock<br></p>
+                    <a href="game.html">
+                        <p>Click here to play</p>
+                    </a>
+                    <p>CMPE 219 HCI for Cybersecurity</p>
+                    <b>Team 7</b><br>
+                    <p>
+                        <h5>Created by Aakash Alurkar, Akhil Raveendran, Divisha Bera and Jay Parekh</h5>
+                    </p>
+                </div>
 
         </div>
     </div>
